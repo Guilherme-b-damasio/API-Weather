@@ -3,12 +3,11 @@ require_once '../src/model/Weather.php';
 
 if (isset($_SESSION['weather'])) {
     $weather = unserialize($_SESSION['weather']);
-
 }
 ?>
 
 <div class="container">
-    <form class="form-floating" action="../public/index.php" method="post">
+    <form class="form-floating" action="index.php" method="POST">
         <div class="search-box">
             <input type="text" class="form-control" id="city" name="city">
             <label for="city"></label>

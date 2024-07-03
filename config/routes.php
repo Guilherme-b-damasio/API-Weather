@@ -1,7 +1,5 @@
 <?php
 
-use Src\Controller\getAPIController;
-
-return $routes = [
-    "POST/" => "Src\Controller\getAPIController::handle",
+return [
+     "POST/api_weather/public/index.php" => "getAPIController::handle",
 ];
