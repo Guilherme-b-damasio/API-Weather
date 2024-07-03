@@ -8,7 +8,7 @@ class serviceAPI
 {
     public function fetchWeatherData($city)
     {
-        $apiKey = '8807b0c1b453555da2b8c1c5e2602e81';
+        $apiKey = getenv('API_KEY');
         $apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric";
 
         $weatherData = json_decode(file_get_contents($apiUrl));
