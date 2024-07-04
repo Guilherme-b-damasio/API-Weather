@@ -6,10 +6,13 @@ use Src\Model\Entity\Weather;
 
 class serviceAPI
 {
-    public function fetchWeatherData($city)
+    public function fetchWeatherData($parametro)
     {
         $apiKey = "8807b0c1b453555da2b8c1c5e2602e81";
-        $apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric";
+        // $apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=$parametro&appid=$apiKey&units=metric";
+
+        $locationData = json_decode($parametro);
+        $apiUrl = $apiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" . urlencode($locationData->latitude) . "&lon=" . urlencode($locationData->longitude) . "&appid=" . urlencode($apiKey) . "&units=metric";
 
         $weatherData = json_decode(file_get_contents($apiUrl));
 

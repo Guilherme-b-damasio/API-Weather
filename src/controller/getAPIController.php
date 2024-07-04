@@ -17,12 +17,15 @@ class getAPIController
     public function handle()
     {
         $this->service = $this->serviceGet();
-        if (!isset($_POST['city'])) {
+        if (!isset($_REQUEST['city']) || !isset($_REQUEST['locationData'])) {
             echo "error";
         }
 
-        $city = $_POST['city'];
-        $this->service->fetchWeatherData($city);
+        $parametro = isset($_REQUEST['city']) ? $_REQUEST['city'] : $_REQUEST['locationData'];
+        $parametro = $_REQUEST['locationData'];
+        $_SESSION['teste'] =  $_REQUEST['locationData'] ? $parametro : "não foi";
+
+        $this->service->fetchWeatherData($parametro);
     }
 }
 

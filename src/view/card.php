@@ -7,18 +7,21 @@ if (isset($_SESSION['weather'])) {
 ?>
 
 <div class="container">
-    <form class="form-floating" action="index.php" method="POST">
+    <form class="form-floating" action="index.php" method="">
         <div class="search-box">
             <input type="text" class="form-control" id="city" name="city">
             <label for="city"></label>
             <button class="search-btn" type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
+            <button class="search-btn" type="submit" onclick="getCurrentPosition()">
+                <i class="fa-solid fa-location-crosshairs"></i>
+            </button>
         </div>
     </form>
 
     <div class="icon-container">
-        <img src=<?php echo "https://openweathermap.org/img/wn/" .  $weather->getIcon() . ".png" ?> alt="weather icon"
+        <img src=<?php echo "https://openweathermap.org/img/wn/" . $weather->getIcon() . ".png" ?> alt="weather icon"
             class="icon">
     </div>
 
