@@ -1,0 +1,18 @@
+{
+    "name": "ultralims/consultacep",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "UltraLIMS\\ConsultaCep\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "estagiarios"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.8",
+        "php-di/php-di": "^7.0"
+    }
+}

@@ -10,6 +10,7 @@ class Weather
     private $speedWind;
     private $icon;
     private $description;
+    private $iconClass;
 
     public function __construct($weatherData)
     {
@@ -48,5 +49,15 @@ class Weather
     public function getDescription()
     {
         return $this->description;
+    }
+
+    public function getIconClass()
+    {
+        return $this->iconClass;
+    }
+
+    public function setIconClass($iconClass)
+    {
+        $this->iconClass = $iconClass;
     }
 }

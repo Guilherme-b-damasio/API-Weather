@@ -10,7 +10,8 @@ class getAPIController
 {
     private $service;
 
-    public function serviceGet(){
+    public function serviceGet()
+    {
         return new serviceAPI;
     }
 
@@ -18,15 +19,15 @@ class getAPIController
     {
         $this->service = $this->serviceGet();
         if (!isset($_REQUEST['city']) || !isset($_REQUEST['locationData'])) {
-            echo "error";
+            header("Location: index.php");
         }
 
         $parametro = isset($_REQUEST['city']) ? $_REQUEST['city'] : $_REQUEST['locationData'];
-        $parametro = $_REQUEST['locationData'];
-        $_SESSION['teste'] =  $_REQUEST['locationData'] ? $parametro : "não foi";
+
+        if ($_REQUEST['city']) {
+            $this->service->fetchWeatherDataByCity($parametro);
+        }
 
         $this->service->fetchWeatherData($parametro);
     }
 }
-
-?>

@@ -1,4 +1,4 @@
-function getCurrentPosition() {
+function getCurrentPosition1() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             let latitude = position.coords.latitude;
@@ -15,11 +15,11 @@ function getCurrentPosition() {
             // Envia os dados para o PHP via AJAX
             $.ajax({
                 type: 'POST',
-                url: 'index.php',
                 data: { locationData: jsonData },
                 success: function (response) {
                     console.log('Dados enviados com sucesso!');
                     console.log('Resposta do servidor:', response);
+                    window.location.href = 'index.php';
                 },
                 error: function (error) {
                     console.error('Erro ao enviar dados:', error);
